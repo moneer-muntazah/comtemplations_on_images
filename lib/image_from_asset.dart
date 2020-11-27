@@ -1,18 +1,31 @@
-
 import 'package:flutter/material.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/services.dart';
 
-class ImageFromAsset extends StatelessWidget {
+class ImageFromAsset extends StatefulWidget {
   final String uri;
   const ImageFromAsset(this.uri);
+
+  @override
+  _ImageFromAssetState createState() => _ImageFromAssetState();
+}
+
+class _ImageFromAssetState extends State<ImageFromAsset> {
+  AssetImage imageAsset;
+
+  @override
+  void initState() {
+    super.initState();
+    imageAsset = imageAsset = AssetImage(widget.uri);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Image(
         height: 100,
         width: 100,
-        image: AssetImage(uri),
+        image: imageAsset,
       ),
     );
     // return Center(
@@ -33,5 +46,12 @@ class ImageFromAsset extends StatelessWidget {
     //     // clearMemoryCacheWhenDispose: false,
     //   ),
     // );
+  }
+
+  @override
+  void dispose() {
+    print("dispose");
+    // imageAsset.evict();
+    super.dispose();
   }
 }
