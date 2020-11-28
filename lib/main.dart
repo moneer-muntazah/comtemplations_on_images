@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'simple_image.dart';
 import 'image_list.dart';
@@ -61,11 +62,22 @@ class MyHomePage extends StatelessWidget {
       //     ],
       //   ),
       // ),
+      // body: Center(
+      //   child: Image.asset(
+      //     "assets/boy.jpg",
+      //     width: 360,
+      //     height: 640,
+      //     cacheWidth: 100,
+      //     // cacheHeight: 320,
+      //   ),
+      // ),
       body: Center(
-        child: Image.asset(
-          "assets/boy.jpg",
-          cacheWidth: 180,
-          cacheHeight: 320,
+        child: ExtendedImage.asset(
+          "assets/body.jpg",
+          width: 360,
+          height: 650,
+          cacheWidth: 100,
+          // cacheHeight: 320,
         ),
       ),
     );
